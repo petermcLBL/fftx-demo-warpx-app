@@ -31,6 +31,18 @@ prefix *spiral-package* removed.
 Follow the build instructions for **spiral-software** (see the **README**
 [**here**](https://github.com/spiral-software/spiral-software/blob/master/README.md) ).
 
+You should be using the `develop` branch of all of these repos:
+```
+pushd $SPIRAL_HOME
+git checkout develop
+pushd namespace/packages/fftx
+git checkout develop
+pushd ../simt
+git checkout develop
+popd
+popd
+```
+
 ### Installing FFTX
 
 Clone **FFTX** to a location on your computer.  E.g., do:
@@ -39,7 +51,11 @@ cd ~/work
 git clone https://www.github.com/spiral-software/fftx
 ```
 
-Then **FFTX_HOME** should be set to `~/work/fftx` .
+Then **FFTX_HOME** should be set to `~/work/fftx` . Use the `develop` branch:
+```
+pushd $FFTX_HOME
+git checkout develop
+```
 
 In order to build the FFTX _library_, you first need to generate files with `./create_lib_code.sh` .  It is set up to work with CUDA, but you can have it work with HIP by simply changing references to "cuda" in that script to "hip".
 ```
